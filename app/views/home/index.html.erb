@@ -1,0 +1,41 @@
+<div class='container'>
+  <br>
+  <div class='span11'>
+    <center>
+    <form class="form-search alert alert-info">
+      encontre um curso 
+      <input type="text" class="input-big search-query" style='width:50%'>
+      <button type="submit" class="btn btn-success">buscar</button>
+    </form>
+    </center>
+  </div>
+  <div class='row'>
+    <div class='span6'>
+      <div  style='margin:30px;'>
+      </div>
+    </div>
+    <div class='span6'>
+      <div class='span5 thumbnail' style='line-height:120%'>
+        <p><b>novidades</b></p>
+        <p>Assista gratuitamente a videos da sua instituição de ensino ou compre vídeos de outras instituições. Você poderá comprar o vídeo separadamente ou pacotes de cursos com descontos. A forma de pagamento será feita através do Paypal para garantir segurança.</p> 
+        <p>Em breve haverá emissão de certificados de cursos. Com eles, será possível eliminar carga-horária extra exigina pela entidade.</p>
+      </div>
+    </div>
+  </div -->
+  <center><h4>últimos cursos</h4></center>
+    <% @courses.each do |c| %>
+      <% if c.screenshot %>
+      <div class='span4'>
+        <a href='/courses/<%= c.id %>' class='thumb-video'>
+          <div class='well'>
+            <ul class='nav'>
+              <li><%= image_tag c.screenshot %></li>
+              <li><b><%= c.name %></b></li>
+              <li><%= c.information %></li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      <% end %>
+    <% end %>
+</div>

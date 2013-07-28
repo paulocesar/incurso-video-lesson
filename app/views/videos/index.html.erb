@@ -1,0 +1,36 @@
+<div class="container">
+<% if !@videos.empty? %>
+<h3>Meus Vídeos</h3>
+  <ul class="thumbnails">
+    <% @videos.each do |video| %>
+      <li class="span3">
+        <a href="videos/<%= video.id %>" class="thumbnail thumb-video">
+          <img class="img-rounded" src="<%= video.panda_video.encodings["h264"].screenshots.first %>" alt="">
+          <b><%= video.name %></b><br>
+          <%= video.information %><br>
+          <%= video.course.name if video.course %>
+          <%= video.user.description.name if video.user.description %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% if !@purchased_videos.empty? %>
+  <h3>Vídeos Adiquiridos</h3>
+  <ul class="thumbnails">
+    <% @purchased_videos.each do |video| %>
+      <li class="span3">
+        <a href="videos/<%= video.id %>" class="thumbnail thumb-video">
+          <img class="img-rounded" src="<%= video.panda_video.encodings["h264"].screenshots.first %>" alt="">
+          <b><%= video.name %></b><br>
+          <%= video.information %><br>
+          <%= video.course.name if video.course %>
+          <%= "professor: #{video.user.description.name}<br>".html_safe if video.user.description %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+</div>

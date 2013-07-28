@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "incurso" %></title>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'jwplayer' %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+
+    <div class="navbar" style="height:70px;margin-bottom:0px;padding-bottom:0px"> <!--  navbar-fixed-top -->
+      <div class="navbar-inner nav-larger">
+        <div class="container">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="brand" style="margin-top:10px"><span class="logo-second">in</span><span class="logo-first">curso</span></div>
+
+          <div class="container nav-collapse">
+            <div class="menu-align">
+              <ul class="nav">
+                <% if user_signed_in? %>
+                  <li><%= link_to "pagina principal", {:controller => 'home', :action => 'index'} %></li>
+                  <li><%= link_to "acervo", '#'%></li>
+                  <% if current_user.can_add_courses? %>
+                    <li><%= link_to "meus cursos", {:controller => 'courses', :action => 'index'} %></li>
+                  <% end %>
+                  <li><%= link_to "meus videos", {:controller => 'videos', :action => 'index'} %></li>
+                <% else %>
+                  <li><%= link_to "cadastre-se", "#" %></li>
+                  <li><%= link_to "saiba mais", "#" %></li>
+                <% end %>
+                <li><%= link_to "contato", "#"  %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "sair", :destroy_user_session, :method => 'delete'  %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div> <!-- /container -->
+      
+
+  <%if notice || alert %>
+        <% if notice %>
+          <center><div class="alert alert-success" style="margin-bottom:0px;"><%= notice %></div></center>
+        <% end %>
+        <% if alert %>
+          <center><div class="alert alert-error" style="margin-bottom:0px;"><%= alert %></div></center>
+        <% end %>
+  <% end %>
+
+    <%= yield %>
+
+    <footer>
+      <div class="row">
+        <div class="span2"></div>
+        <div class="span8">
+          <p>&copy; campusvideo 2013</p>
+        </div>
+        <div class="span2"></div>
+      </div>
+    </footer>
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  </body>
+</html>

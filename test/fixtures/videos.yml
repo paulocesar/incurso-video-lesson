@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  information: MyText
+  price: 1.5
+  panda_video_id: MyString
+  course: 
+  user: 
+
+two:
+  name: MyString
+  information: MyText
+  price: 1.5
+  panda_video_id: MyString
+  course: 
+  user: 

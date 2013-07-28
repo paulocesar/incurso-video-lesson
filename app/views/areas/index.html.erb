@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="span3">
+
+<%= link_to 'New Area', new_area_path %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Information</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @areas.each do |area| %>
+          <tr>
+            <td><%= area.name %></td>
+            <td><%= area.information %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="span6">
+      <p>OADoaGD OA DgoadgO doP DgDpg</p>
+    </div>
+    
+    <div class="span3">
+      eaodboabdgad adioa gadg aodigh agoadghioahgoadgh aodgi adg aodgih adoi 
+    </div>
+  </div>
+</div>
+
+<br />

@@ -1,0 +1,27 @@
+
+<% if devise_error_messages! != '' %>
+  <center><div class="alert alert-error"><%= devise_error_messages! %></div></center>
+<% end %>
+<div class="row">
+  <div class="span8">
+  </div>
+  <div class="span4">
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+		  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <li><%= f.label :email, "e-mail" %></li>
+        <li><%= f.email_field :email, :style => "width:100%" %></li>
+         
+        <li><%= f.label :password, "senha" %></li>
+        <li><%= f.password_field :password, :style => "width:100%" %></li>
+
+        <li><%= f.label :password_confirmation, "confirmação de senha" %></li>
+        <li><%= f.password_field :password_confirmation, :style => "width:100%" %></li>
+
+        <li><%= f.submit "entrar" %></li>
+      <% end %>
+      </ul>
+    </div><!--/.well -->
+    <%= render "devise/shared/links" %>
+  </div><!--/span-->
+</div><!--/row-->

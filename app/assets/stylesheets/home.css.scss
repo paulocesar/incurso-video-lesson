@@ -1,0 +1,44 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.banner {
+  background-image: image-url("banner3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 338px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+}
+
+.banner-spacer {
+  height: 60px;
+}
+
+.banner-text-main {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-weight:bold;
+}
+
+.banner-text-sub {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+}
+
+.banner-main-text b {
+  color: #00a0f3;
+  font-size: 40px;
+}
+
+.banner-btn {
+  margin-top: 30px;
+  float: left;
+  margin-left: 20%;
+}

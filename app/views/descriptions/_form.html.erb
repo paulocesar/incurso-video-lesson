@@ -1,0 +1,44 @@
+<%= form_for(@description, :html => {:class=>'form-horizontal'}) do |f| %>
+  <% if @description.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@description.errors.count, "error") %> prohibited this description from being saved:</h2>
+
+      <ul>
+      <% @description.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="span5">
+      <div class="field">
+        <%= f.label :name, "nome" %><br />
+        <%= f.text_field :name, :style => 'width:100%' %>
+      </div>
+      <!-- div class="field">
+        <%= f.label :picture %><br />
+        <%= f.text_field :picture, :style => 'width:100%' %>
+      </div -->
+      <div class="field">
+        <%= f.label :address, "endereço" %><br />
+        <%= f.text_field :address, :style => 'width:100%' %>
+      </div>
+      <div class="field">
+        <%= f.label :phone, "telefone" %><br />
+        <%= f.text_field :phone, :style => 'width:100%' %>
+      </div>
+    </div>
+    <div class="span1"></div>
+    <div class="span5">
+      <div class="field">
+        <%= f.label :information, "informações" %><br />
+        <%= f.text_area :information, :style => 'width:100%; height: 185px' %>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "salvar" %>
+  </div>
+<% end %>

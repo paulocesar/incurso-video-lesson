@@ -1,0 +1,90 @@
+<div class="container">
+<div class="row">
+  <div class="span8">
+
+
+
+
+            <h3><%= @video.name %></h3>
+            <p id="notice"><%= notice %></p>
+            <p>
+            <div id='flash_player'><br><br><br><br>Carregando...<br><br><br></div>
+            <script type='text/javascript'>
+                jwplayer("flash_player").setup({
+                    file: "<%= @h264_encoding.url %>",
+                    width: "100%",
+                    height: "400px",
+                    image: "<%= @h264_encoding.screenshots.first %>",
+                });
+            </script>
+            </p>
+
+            <p>
+              <b>informações:</b>
+              <%= @video.information %>
+            </p>
+
+            <% if @video.course %>
+            <p>
+              <b>curso:</b>
+              <%= link_to @video.course.name, @video.course %>
+            </p>
+            <% end %>
+
+            <% if @video.user %>
+            <p>
+              <b>professor:</b>
+              <%= link_to @video.user.description.name, @video.user.description %>
+            </p>
+            <% end %>
+
+
+
+
+  </div>
+  <div class="span4">
+
+    <div class="well sidebar-nav">
+
+    <% if @owner %>
+      <ul class="nav">
+        <li><%= link_to "editar dados", edit_course_path(@course), :class=>'btn' %></li>
+        <li></li>
+        <li><%= link_to "adicionar videos", new_video_path(:course => @course), :class => 'btn' %></li>
+      </ul>
+    <% end %>
+    <p><b>Sobre o Curso</b></p>
+    <p>
+      <b>descrição:</b>
+      <%= @course.information %>
+    </p>
+
+    <p>
+      <b>area:</b>
+      <%= @course.area.name %>
+    </p>
+
+    <p>
+      <b>autor:</b>
+      <%= link_to @course.user.description.name, @course.user.description %>
+    </p>
+    <b>mais videos:</b><br>
+    <% if !@course.videos.empty? %>
+      <ul class="thumbnails">
+        <% @course.videos.each do |video| %>
+          <li class="span3">
+            <a href='<%= "/courses/#{@course.id}?video_id=#{video.id}" %>' class="thumbnail thumb-video">
+              <img class="img-rounded" src="<%= video.panda_video.encodings["h264"].screenshots.first %>" alt="">
+              <b><%= video.name %></b><br>
+              <%= video.information %><br>
+              <%= video.course.name if video.course %>
+              <%= video.user.description.name if video.user.description %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  </div>
+</div>
+</div>

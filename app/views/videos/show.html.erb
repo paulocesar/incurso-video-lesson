@@ -1,0 +1,34 @@
+<div class="container">
+<h3><%= @video.name %></h3>
+<p id="notice"><%= notice %></p>
+<p>
+<div id='flash_player'>Flash player will appear here</div>
+<script type='text/javascript'>
+    jwplayer("flash_player").setup({
+        file: "<%= @h264_encoding.url %>",
+        width: "100%",
+        height: "400px",
+        image: "<%= @h264_encoding.screenshots.first %>",
+    });
+</script>
+</p>
+
+<p>
+  <b>informações:</b>
+  <%= @video.information %>
+</p>
+
+<% if @video.course %>
+<p>
+  <b>curso:</b>
+  <%= link_to @video.course.name, @video.course %>
+</p>
+<% end %>
+
+<% if @video.user %>
+<p>
+  <b>professor:</b>
+  <%= link_to @video.user.description.name, @video.user.description %>
+</p>
+<% end %>
+</div>

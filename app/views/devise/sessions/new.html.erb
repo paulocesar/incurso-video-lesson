@@ -1,0 +1,66 @@
+<div class="banner">
+  <div class="container">
+    <div class="span12 banner-spacer"></div>
+    <div class="row">
+      
+      <!-- main message -->
+      <div class="span8">
+        <div class="banner-text-main">Vídeos Online para Instituições</div>
+        <div class="banner-text-sub">grave vídeos, divulgue, compre ou venda</div>
+        <center><a href="#" class="btn btn-large btn-success banner-btn" style="color:white">cadastre-se</a></center>
+      </div>
+      
+
+      <!-- login space -->
+      <div class="span4">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+              <li><%= f.label :email, "e-mail" %></li>
+              <li><%= f.email_field :email, :style => "width:95%" %></li>
+             
+              <li><%= f.label :password, "senha" %></li>
+              <li><%= f.password_field :password, :style => "width:95%" %></li>
+              <li> </li>
+              <li><%= f.submit "entrar" %></li>
+            <% end %>
+          </ul>
+        </div>
+        <!-- %= render "devise/shared/links" % -->
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="container-spacer"></div>
+  <div class="container">
+    <center>
+      <div class="row">
+        <div class="span4">
+          <div class="explain-title">Grave vídeos</div>
+          <p class="explain-text">
+            Instituições de ensino e professores podem gravar vídeos, criar cursos e divulgar no incurso
+          </p>
+        </div>
+        <div class="span4">
+          <div class="explain-title">Compartilhe</div>
+          <p class="explain-text">
+            As instituições de ensino podem compartilhar ou vender vídeos com alunos ou outras instituições
+          </p>
+        </div>
+        <div class="span4">
+          <div class="explain-title">Assista aulas</div>
+          <p class="explain-text">
+            Alunos cadastrado podem assistir vídeos de suas instituições ou comprar pacotes de cursos separados
+          </p>
+        </div>
+      </div>
+    </center>
+  </div>
+  <div class="container-spacer"></div>
+  </div>
+
+
+
+
